@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAM JavaScript</title>
+</head>
+<body>
+	<center>
+		<h1>Olá</h1>
+		
+		<button type="button" onclick="Alerta()">Mostrar</button>
+		<p id="textoBV">Olá Mundo</p>
+		
+		<h3>Olá</h3>
+		<h3>vindo</h3>
+		<br>
+		
+		<h2 class="usandoSelect">Tags HTML</h2>
+
+		<h4 class="usandoSelectAll">head</h4>
+		<h4 class="usandoSelectAll">body</h4>
+		<h4 class="usandoSelectAll">style</h4>
+		
+		<input type="text" name="" id="receb_input">
+		<button type="button" id="botao">Ver</button>
+		<p id="inputText"></p>
+		
+		<h2 class="usandoSelect">Linguagens</h2>
+		<ol class="ling">
+			<li>php</li>
+			<li>javascript</li>
+			<li>css</li>
+			<li>html</li>
+		</ol>
+		<p class="ling">são linguagens para programação web e mobile</p>
+	</center>
+    
+</body>
+
+<script>
+    alert("Bem vindo para Programação Mobile")
+
+    function Alerta(){
+        alert("SQL Server é um banco de dados")
+    }
+	
+	//recuperando elemento pelo id
+    const textoBV = document.getElementById('textoBV')
+    textoBV.innerHTML += " e usuário!"
+	
+	//recuperando elementos que são h3
+    const h3Elements = document.getElementsByTagName("h3")
+    console.log(h3Elements)
+
+    for (let i = 0; i < h3Elements.length; i++) {
+        h3Elements[i].innerHTML = "programação mobile"
+		h3Elements[i].style.color = "green"
+    }
+	
+	//recuperando elementos que contém ling como classe
+    const linguagens = document.getElementsByClassName("ling")
+
+    for (let i = 0; i < linguagens.length; i++) {
+        linguagens[i].style.color = "blue"
+    }
+	
+	//recuperando elemento usando query selector ou pela classe ou pelo id
+    const usandoSelect = document.querySelector(".usandoSelect");
+    
+    usandoSelect.style.color = "purple"
+	
+	//recuperando todos os elementos usando query selector all que contenha certa classe ou id
+    const usandoSelectAll = document.querySelectorAll(".usandoSelectAll");
+    console.log(usandoSelectAll)
+    for (let i = 0; i < usandoSelectAll.length; i++) {
+        usandoSelectAll[i].style.color = "blue"
+    }
+
+
+    const botao = document.getElementById("botao")
+    const receb_input = document.getElementById("receb_input")
+    const inputText = document.getElementById("inputText")
+
+    botao.addEventListener("mouseover", () => {
+        botao.style.backgroundColor = "purple"
+    })
+
+    botao.addEventListener("focus", () => {
+        botao.style.backgroundColor = "blue"
+    })
+
+    receb_input.addEventListener("change", (e) => {
+        inputText.innerHTML = e.target.value
+    })
+
+    botao.addEventListener("click", () => {
+        inputText.innerHTML = "React Native"
+    })
+
+    function sayHello(){
+        alert("Olá usuario")
+    }
+
+    function greetUser(user){
+        return `Bem vindo ${user}`
+    }
+
+    class Employee{
+        constructor(name, age, isAdult){
+            this.name = name
+            this.age = age
+            this.isAdult = false
+        }
+
+        getAge(){
+            if(this.age >= 18){
+                this.isAdult = true
+            }
+            
+            this.isAdult ? console.log(`Você é maior de idade e  ${this.age} é a sua idade`) :console.log(`Voc~e é menor de idade e  ${this.age} é sua idade`)
+        }
+    }
+    
+    const employee1 = new Employee("Carlos", 15)
+    employee1.getAge()
+
+    const calculate = function xAndY(x, y){
+       alert(x + y)
+    }
+    calculate(5, 9)
+
+    const whatever = () => {
+        console.log("arrow function")
+    }
+    whatever()
+</script>
+
+</html>
